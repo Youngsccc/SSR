@@ -1,0 +1,17 @@
+@import "styles/common";
+
+.#{$prefix}-header {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 0 12px;
+  box-shadow: -1px 0px 5px 0px rgba(0, 0, 0, 0.2);
+  height: 50px;
+  z-index: 1;
+}
+
+.#{$prefix}-content {
+  min-height: calc(100vh - 120px);
+  padding: 12px;
+  background: #fff;
+}
