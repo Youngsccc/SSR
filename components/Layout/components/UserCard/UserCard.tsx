@@ -6,8 +6,12 @@ import {
   EditOutlined,
   EllipsisOutlined,
 } from '@ant-design/icons';
+import { useStore } from '../../../../store';
 
 const UserCard: NextPage<NextPageProps> = () => {
+  const store = useStore();
+
+  const { avatar } = store?.user.userInfo || {};
   return (
     <Card
       style={{ width: 300 }}
@@ -23,11 +27,9 @@ const UserCard: NextPage<NextPageProps> = () => {
         <EllipsisOutlined key="ellipsis" />,
       ]}
     >
-      <Skeleton loading={false} avatar active>
+      <Skeleton loading={!avatar} avatar active>
         <Card.Meta
-          avatar={
-            <Avatar src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-          }
+          avatar={<Avatar src={avatar} />}
           title="人员卡片"
           description="描述"
         />
