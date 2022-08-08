@@ -1,0 +1,11 @@
+@import "styles/common";
+
+.#{$prefix}-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .#{$prefix}-footer-content {
+    color: #bfbfbf;
+  }
+}
