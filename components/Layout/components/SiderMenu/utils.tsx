@@ -20,14 +20,8 @@ export const menuItems: MenuItem[] = [
   },
   {
     label: '项目',
-    key: '/',
+    key: '/project',
     icon: <DesktopOutlined />,
-    children: [
-      {
-        label: '项目',
-        key: '/project',
-      },
-    ],
   },
   {
     label: '团队',
