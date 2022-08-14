@@ -14,7 +14,7 @@ const SiderMenu: NextPage<NextPageProps> = () => {
   }, []);
   return (
     <Menu
-      openKeys={openKeys}
+      defaultOpenKeys={openKeys}
       selectedKeys={activeKeys}
       mode="inline"
       items={menuItems}
