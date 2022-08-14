@@ -13,23 +13,20 @@ const WorkPlace: NextPage<NextPageProps> = () => {
       <CardHeader />
       <Row gutter={12} className={styles[`${prefix}-workplace-content`]}>
         <Col xs={24} sm={24} md={24} lg={24} xl={16}>
-          <Card title="待办列表">
-            <Empty description="暂无" />
-          </Card>
           <CardProjectList />
-          <Card title="动态">
+          <Card title="动态" style={{ margin: '12px 0 0' }}>
             <Empty description="暂无" />
           </Card>
         </Col>
         <Col xs={24} sm={24} md={24} lg={24} xl={8}>
-          <Card title="快捷导航">
+          <Card title="待办列表" style={{ margin: '0 0 12px' }}>
             <Empty description="暂无" />
           </Card>
           <NoticeSwiper data={[12, 1]} />
-          <Card title="团队">
+          <Card title="消息中心" style={{ margin: '12px 0' }}>
             <Empty description="暂无" />
           </Card>
-          <Card title="消息中心">
+          <Card title="团队">
             <Empty description="暂无" />
           </Card>
         </Col>

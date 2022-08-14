@@ -2,6 +2,7 @@ export interface UserInfo {
   id?: string;
   nickName?: string;
   avatar?: string;
+  role?: string[];
 }
 
 export interface UserStore {

@@ -15,24 +15,19 @@ export type MenuItem = {
 export const menuItems: MenuItem[] = [
   {
     label: '首页',
-    key: '/',
+    key: '/workplace',
     icon: <DashboardOutlined />,
-    children: [
-      {
-        label: '工作台',
-        key: '/workplace',
-      },
-      {
-        label: '分析页面',
-        key: '/analysis',
-      },
-    ],
   },
   {
     label: '项目',
-    key: '/projects',
+    key: '/',
     icon: <DesktopOutlined />,
-    children: [],
+    children: [
+      {
+        label: '项目',
+        key: '/project',
+      },
+    ],
   },
   {
     label: '团队',
