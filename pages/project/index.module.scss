@@ -1,0 +1,9 @@
+@import "styles/common";
+
+.#{$prefix}-project-container {
+  padding: 12px;
+
+  .#{$prefix}-project-header {
+    background: #fff;
+  }
+}
