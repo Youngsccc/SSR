@@ -1,28 +1,17 @@
 # 构建基础镜像
-FROM alpine:3.15 AS base
+FROM node:16-alpine
 
-ENV NODE_ENV=production \
-  APP_PATH=/app
+RUN mkdir -p /usr/app/
 
-WORKDIR $APP_PATH
+WORKDIR /usr/app
 
-# 国内镜像
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+# 当前路径下的页面复制到镜像中
+COPY ./ ./
 
-RUN apk add --no-cache --update nodejs=16.13.1-r0 yarn=1.22.17-r0
+RUN npm install
 
-FROM base AS install
-
-COPY package.json yarn.lock ./
-
-RUN yarn install
-
-COPY --from=install $APP_PATH/node_modules ./node_modules
-
-COPY . .
-
-RUN yarn build
+RUN npm run build
 
 EXPOSE 3000
 
-CMD ["yarn", "start"]
+CMD ["npm", "start"]
