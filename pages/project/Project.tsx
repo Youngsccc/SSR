@@ -3,7 +3,7 @@ import { NextPageProps } from '@/types/common';
 import { Card, Empty, PageHeader, Button } from 'antd';
 import { PlusSquareOutlined } from '@ant-design/icons';
 import { prefix } from '@/constant/index';
-import { routes } from './constant';
+import { routes } from '@/constant/constant.routes';
 import styles from './index.module.scss';
 import { useRouter } from 'next/router';
 import { useCallback } from 'react';
