@@ -1,44 +1,17 @@
 # 构建基础镜像
-FROM node:16-alpine AS deps
-
-WORKDIR /app
+FROM node:16-alpine
 
 RUN mkdir -p /usr/local/bin/app/
 
-COPY package.json yarn.lock ./
+WORKDIR /usr/local/bin/app
 
-RUN yarn install --frozen-lockfile
+# 当前路径下的页面复制到镜像中
+COPY ./ ./
 
-# Rebuild the source code only when needed
-FROM node:16-alpine AS builder
+RUN npm install
 
-WORKDIR /app
-
-COPY --from=deps /app/node_modules ./node_modules
-
-COPY . .
-
-RUN yarn build
-
-# Production image, copy all the files and run next
-FROM node:16-alpine AS runner
-
-WORKDIR /app
-
-ENV NODE_ENV production
-
-COPY --from=builder /app/public ./public
-
-COPY --from=builder /app/package.json ./package.json
-
-# Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=builder --chown=bloguser:bloggroup /app/.next/standalone ./
-
-COPY --from=builder --chown=bloguser:bloggroup /app/.next/static ./.next/static
+RUN npm run build
 
 EXPOSE 3000
-
-ENV PORT 3000
 
 CMD ["node", "server.js"]
