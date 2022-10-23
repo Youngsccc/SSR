@@ -6,8 +6,18 @@ import CardProjectList from '@/pages/workplace/components/CardProjectList';
 import NoticeSwiper from '@/components/NoticeSwiper';
 import { prefix } from '@/constant/index';
 import styles from './index.module.scss';
+import axios from '@/utils/axios';
+import { useEffect } from 'react';
 
 const WorkPlace: NextPage<NextPageProps> = () => {
+  const fetchData = async () => {
+    await axios.get('/public/demo');
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+  console.log('render');
   return (
     <div>
       <CardHeader />
