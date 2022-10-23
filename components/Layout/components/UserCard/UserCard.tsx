@@ -1,4 +1,5 @@
 import { NextPage } from 'next';
+import Image from 'next/image';
 import { NextPageProps } from '@/types/common';
 import { Card, Avatar, Skeleton } from 'antd';
 import {
@@ -16,7 +17,7 @@ const UserCard: NextPage<NextPageProps> = () => {
     <Card
       style={{ width: 300 }}
       cover={
-        <img
+        <Image
           alt="example"
           src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
         />
